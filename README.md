@@ -23,8 +23,8 @@
 [JavaScript Load Image Demo](https://blueimp.github.io/JavaScript-Load-Image/)
 
 ## Description
-JavaScript Load Image is a library to load images provided as File or Blob objects or via URL.  
-It returns an optionally scaled and/or cropped HTML img or canvas element via an asynchronous callback.  
+JavaScript Load Image is a library to load images provided as File or Blob objects or via URL.
+It returns an optionally scaled and/or cropped HTML img or canvas element via an asynchronous callback.
 It also provides a method to parse image meta data to extract Exif tags and thumbnails and to restore the complete image header after resizing.
 
 ## Setup
@@ -80,7 +80,7 @@ However, JavaScript Load Image is a very suitable complement to the [Canvas to B
 ## API
 The **loadImage()** function accepts a [File](https://developer.mozilla.org/en/DOM/File) or [Blob](https://developer.mozilla.org/en/DOM/Blob) object or a simple image URL (e.g. `'https://example.org/image.png'`) as first argument.
 
-If a [File](https://developer.mozilla.org/en/DOM/File) or [Blob](https://developer.mozilla.org/en/DOM/Blob) is passed as parameter, it returns a HTML **img** element if the browser supports the [URL](https://developer.mozilla.org/en/DOM/window.URL) API or a [FileReader](https://developer.mozilla.org/en/DOM/FileReader) object if supported, or **false**.  
+If a [File](https://developer.mozilla.org/en/DOM/File) or [Blob](https://developer.mozilla.org/en/DOM/Blob) is passed as parameter, it returns a HTML **img** element if the browser supports the [URL](https://developer.mozilla.org/en/DOM/window.URL) API or a [FileReader](https://developer.mozilla.org/en/DOM/FileReader) object if supported, or **false**.
 It always returns a HTML [img](https://developer.mozilla.org/en/docs/HTML/Element/Img) element when passing an image URL:
 
 ```js
@@ -137,27 +137,27 @@ The optional third argument to **loadImage()** is a map of options:
 * **maxHeight**: Defines the maximum height of the img/canvas element.
 * **minWidth**: Defines the minimum width of the img/canvas element.
 * **minHeight**: Defines the minimum height of the img/canvas element.
-* **sourceWidth**: The width of the sub-rectangle of the source image to draw into the destination canvas.  
+* **sourceWidth**: The width of the sub-rectangle of the source image to draw into the destination canvas.
 Defaults to the source image width and requires *canvas: true*.
-* **sourceHeight**: The height of the sub-rectangle of the source image to draw into the destination canvas.  
+* **sourceHeight**: The height of the sub-rectangle of the source image to draw into the destination canvas.
 Defaults to the source image height and requires *canvas: true*.
-* **top**: The top margin of the sub-rectangle of the source image.  
+* **top**: The top margin of the sub-rectangle of the source image.
 Defaults to *0* and requires *canvas: true*.
-* **right**: The right margin of the sub-rectangle of the source image.  
+* **right**: The right margin of the sub-rectangle of the source image.
 Defaults to *0* and requires *canvas: true*.
-* **bottom**: The bottom margin of the sub-rectangle of the source image.  
+* **bottom**: The bottom margin of the sub-rectangle of the source image.
 Defaults to *0* and requires *canvas: true*.
-* **left**: The left margin of the sub-rectangle of the source image.  
+* **left**: The left margin of the sub-rectangle of the source image.
 Defaults to *0* and requires *canvas: true*.
-* **contain**: Scales the image up/down to contain it in the max dimensions if set to *true*.  
+* **contain**: Scales the image up/down to contain it in the max dimensions if set to *true*.
 This emulates the CSS feature [background-image: contain](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Scaling_background_images#contain).
-* **cover**: Scales the image up/down to cover the max dimensions with the image dimensions if set to *true*.  
+* **cover**: Scales the image up/down to cover the max dimensions with the image dimensions if set to *true*.
 This emulates the CSS feature [background-image: cover](https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Scaling_background_images#cover).
-* **aspectRatio**: Crops the image to the given aspect ratio (e.g. `16/9`).  
+* **aspectRatio**: Crops the image to the given aspect ratio (e.g. `16/9`).
 This feature assumes *crop: true*.
-* **crop**: Crops the image to the maxWidth/maxHeight constraints if set to *true*.  
+* **crop**: Crops the image to the maxWidth/maxHeight constraints if set to *true*.
 This feature assumes *canvas: true*.
-* **orientation**: Allows to transform the canvas coordinates according to the EXIF orientation specification.  
+* **orientation**: Allows to transform the canvas coordinates according to the EXIF orientation specification.
 This feature assumes *canvas: true*.
 * **canvas**: Returns the image as [canvas](https://developer.mozilla.org/en/HTML/Canvas) element if set to *true*.
 * **crossOrigin**: Sets the crossOrigin property on the img element for loading [CORS enabled images](https://developer.mozilla.org/en-US/docs/HTML/CORS_Enabled_Image).
@@ -184,7 +184,7 @@ loadImage(
 All settings are optional. By default, the image is returned as HTML **img** element without any image size restrictions.
 
 ## Meta data parsing
-If the Load Image Meta extension is included, it is also possible to parse image meta data.  
+If the Load Image Meta extension is included, it is also possible to parse image meta data.
 The extension provides the method **loadImage.parseMetaData**, which can be used the following way:
 
 ```js
@@ -212,11 +212,11 @@ loadImage.parseMetaData(
 
 The third argument is an options object which defines the maximum number of bytes to parse for the image meta data, allows to disable the imageHead creation and is also passed along to segment parsers registered via loadImage extensions, e.g. the Exif parser.
 
-**Note:**  
+**Note:**
 Blob objects of resized images can be created via [canvas.toBlob()](https://github.com/blueimp/JavaScript-Canvas-to-Blob).
 
 ### Exif parser
-If you include the Load Image Exif Parser extension, the **parseMetaData** callback **data** contains the additional property **exif** if Exif data could be found in the given image.  
+If you include the Load Image Exif Parser extension, the **parseMetaData** callback **data** contains the additional property **exif** if Exif data could be found in the given image.
 The **exif** object stores the parsed Exif tags:
 
 ```js
@@ -229,7 +229,7 @@ It also provides an **exif.get()** method to retrieve the tag value via the tag'
 var orientation = data.exif.get('Orientation');
 ```
 
-By default, the only available mapped names are **Orientation** and **Thumbnail**.  
+By default, the only available mapped names are **Orientation** and **Thumbnail**.
 If you also include the Load Image Exif Map library, additional tag mappings become available, as well as two additional methods, **exif.getText()** and **exif.getAll()**:
 
 ```js
@@ -247,7 +247,7 @@ The Exif parser also adds additional options for the parseMetaData method, to di
 * **disableExifGps**: Disables parsing of the Exif GPS Info IFD.
 
 ## iOS scaling fixes
-Scaling megapixel images in iOS (iPhone, iPad, iPod) can result in distorted (squashed) images.  
+Scaling megapixel images in iOS (iPhone, iPad, iPod) can result in distorted (squashed) images.
 The Load Image iOS scaling fixes extension resolves these issues.
 
 ## License
